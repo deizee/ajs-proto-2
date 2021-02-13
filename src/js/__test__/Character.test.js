@@ -70,6 +70,22 @@ test('Проверяем, что если здоровье 0, урон не пр
   expect(received).toEqual(expected);
 });
 
+test('Проверяем, что здоровье не опускается < 0, соответственно урон не причиняется', () => {
+  const expected = {
+    name: 'Ivan',
+    type: 'Bowman',
+    health: 0,
+    level: 1,
+    attack: 25,
+    defence: 25,
+  };
+
+  const received = new Bowman('Ivan');
+  received.damage(1000);
+
+  expect(received).toEqual(expected);
+});
+
 test('Проверяем, что при положительном здоровье урон причиняется корректно', () => {
   const expected = {
     name: 'Ivan',
